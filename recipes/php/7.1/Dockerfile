@@ -18,11 +18,13 @@ RUN apt-get -y update \
         git \
         libzip-dev \
         zlib1g-dev \
+        libpng-dev \
         zip \
     && docker-php-ext-configure intl \
     && docker-php-ext-install intl \
     && docker-php-ext-configure zip --with-libzip \
-    && docker-php-ext-install zip mysqli pdo pdo_mysql \
+    && docker-php-ext-configure gd --with-gd
+    && docker-php-ext-install zip mysqli pdo pdo_mysql gd \
     && chmod -R 777 /etc/apache2  /var/www /var/lib/apache2 /var/log \
     && chown -R www-data:www-data /var/www \
     \
