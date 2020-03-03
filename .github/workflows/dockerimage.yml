@@ -11,4 +11,4 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag che-php-gd:$(date +%s)
+      run: docker build /recipes/php/7.1/ --file Dockerfile --tag che-php-gd:$(date +%s)
